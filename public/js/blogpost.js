@@ -1,7 +1,7 @@
 // in routes, will need to send blogpost (as const received after mapping through array with plain:true), userId:req.session.user_id 
 
 // const commentDiv = document.querySelector('.commentDiv');
-// const blogTitle = document.querySelector('.blogTitle')
+
 // const blogContainer = document.querySelector('.blogContainer')
 
 // const user_id = blogTitle.getAttribute('.data-user');
@@ -12,8 +12,6 @@
 //     commentDiv.innerHTML = ``
 
 // } else {
-
-//     const blogId = blogTitle.getAttribute('data-id')
 
     // const response = await fetch(`/api/dashboard/${blogId}`, {
     //     method: 'PUT',
@@ -32,23 +30,22 @@
     //   }
 // }
 
-const commentButton = document.querySelector('.sendComment')
+// const commentButton = document.querySelector('.sendComment')
+// const blogTitle = document.querySelector('.blogTitle')
+// const blogId = blogTitle.getAttribute('data-id')
+
+const commentContent = document.querySelector('.commentContent').value.trim();
 
 function renderComment() {
 
-    // we will request all comments for this blog post
     const response = await fetch(`/api/comment`, {
-        method: 'GET',
-        body: JSON.stringify({
-          time_available: timeAvailable,
-        }),
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        method: 'POST',
+        body: JSON.stringify({ commentContent }),
+        headers: { 'Content-Type': 'application/json' },
       });
       if (response.ok) {
         //replace document with the same page
-        document.location.replace('/neighborhood')
+        document.location.replace('/blogpost')
       } else {
         response.json(err);
       }
