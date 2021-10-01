@@ -1,10 +1,11 @@
 // this allows us to run 'npm run seed' to seed our data into the db
 
 const sequelize = require('../config/connection');
-const { User, Project } = require('../models');
+const { User, Blogpost, Comment } = require('../models');
 
 const userData = require('./userData.json');
-const projectData = require('./projectData.json');
+const blogpostData = require('./blogpostData.json');
+const commentData = require('./commentData.json');
 
 const seedDatabase = async () => {
   await sequelize.sync({ force: true });
@@ -14,10 +15,15 @@ const seedDatabase = async () => {
     returning: true,
   });
 
-  for (const project of projectData) {
-    await Project.create({
-      ...project,
-      user_id: users[Math.floor(Math.random() * users.length)].id,
+  for (const blogpost of blogpostData) {
+    await Blogpost.create({
+      ...blogpost,
+    });
+  };
+
+  for (const comment of commentData) {
+    await Comment.create({
+      ...comment,
     });
   }
 
