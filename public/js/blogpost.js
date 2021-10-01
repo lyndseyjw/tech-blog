@@ -30,25 +30,44 @@
     //   }
 // }
 
-// const commentButton = document.querySelector('.sendComment')
 // const blogTitle = document.querySelector('.blogTitle')
 // const blogId = blogTitle.getAttribute('data-id')
 
+const commentButton = document.querySelector('.sendComment');
+const newButton = document.querySelector('.new-blogpost');
+
 const commentContent = document.querySelector('.commentContent').value.trim();
+const newBlogpost = document.querySelector('#blogpost-content').value.trim();
 
 function renderComment() {
 
-    const response = await fetch(`/api/comment`, {
-        method: 'POST',
-        body: JSON.stringify({ commentContent }),
-        headers: { 'Content-Type': 'application/json' },
-      });
-      if (response.ok) {
-        //replace document with the same page
-        document.location.replace('/blogpost')
-      } else {
-        response.json(err);
-      }
+  const response = await fetch(`/api/comment`, {
+      method: 'POST',
+      body: JSON.stringify({ commentContent }),
+      headers: { 'Content-Type': 'application/json' },
+    });
+    if (response.ok) {
+      //replace document with the same page
+      location.reload();
+    } else {
+      response.json(err);
+    }
 }
 
-commentButton.addEventListener('click', renderComment)
+function createNew() {
+
+  const response = await fetch(`/dashboard/new`, {
+    method: 'POST',
+    body: JSON.stringify({ newBlogpost }),
+    headers: { 'Content-Type': 'application/json' },
+  });
+  if (response.ok) {
+    //replace document with the same page
+    location.reload();
+  } else {
+    response.json(err);
+  }
+}
+
+commentButton.addEventListener('click', renderComment);
+newButton.addEventListener('click', createNew);

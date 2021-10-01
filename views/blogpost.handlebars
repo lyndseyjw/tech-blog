@@ -11,10 +11,27 @@
     <p>{{blogpost.content}}</p>
   </div>
 </div>
-  <div></div>
+{{#if blogpost.Comment}}
+  <div>
+    <div>
+      <h3>Comments</h3>
+    </div>
+    <div>
+      {{#each blogpost.Comment}}
+        <div>
+          <p>{{content}}</p>
+        </div>
+        <div>
+          <p>Posted by &nbsp;{{user.username}}&nbsp; on &nbsp;{{comment.date_created}}</p>
+        </div>
+      {{/each}}
+    </div>
+  </div>
+{{/if}}
+<div>
   <div>
     <p>Comment</p>
-    <textarea class="commentContent"></textarea>
+    <textarea value="{{blogpost.id}} "class="commentContent"></textarea>
     <button class="sendComment">Submit</button>
   </div>
 </div>
