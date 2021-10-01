@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Blogpost, User } = require('../models');
+const { Blogpost, User, Comment } = require('../models');
 const withAuth = require('../utils/auth');
 
 router.get('/', withAuth, async (req, res) => {
@@ -20,7 +20,8 @@ router.get('/', withAuth, async (req, res) => {
     // Pass serialized data and session flag into template
     res.render('homepage', { 
       blogposts, 
-      logged_in: req.session.logged_in 
+      logged_in: req.session.logged_in,
+      userId: req.session.user_id 
     });
   } catch (err) {
     res.status(500).json(err);
@@ -32,16 +33,23 @@ router.get('/blogpost/:id', async (req, res) => {
     const blogpostData = await Blogpost.findByPk(req.params.id, {
       include: [
         {
-          model: Blogpost,
+          model: User,
         },
+        {
+          model: Comment,
+          include: [{model: User}]
+        }
       ],
     });
 
     const blogpost = blogpostData.get({ plain: true });
 
+    // res.json(blogpost)
+
     res.render('blogpost', {
-      ...blogpost,
-      logged_in: req.session.logged_in
+      blogpost,
+      logged_in: req.session.logged_in,
+      userId: req.session.user_id
     });
   } catch (err) {
     res.status(500).json(err);
@@ -51,7 +59,7 @@ router.get('/blogpost/:id', async (req, res) => {
 router.get('/login', (req, res) => {
   // If the user is already logged in, redirect the request to another route
   if (req.session.logged_in) {
-    res.redirect('/dashboard');
+    res.redirect('/');
     return;
   }
   res.render('login');
@@ -63,7 +71,7 @@ router.get('/signup', (req, res) => {
     res.redirect('/dashboard');
     return;
   }
-  res.render('signup');
+  res.render('login');
 });
 
 module.exports = router;

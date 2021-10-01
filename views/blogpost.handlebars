@@ -1,37 +1,40 @@
 {{!-- here we will show individual blog posts users click on --}}
 {{!-- conditional within will have an update & delete option if logged in, else will have a comment option --}}
 {{!-- for comments, we will loop through comments & for any comments that have a blogpost_id that matches current blogpost(id), they will be rendered to the page --}}
-
-<div>
+  <h1>
+    <span role="img" aria-label="money">💻</span>
+    <a href="/">The Tech Blog</a>
+  </h1>
+</header>
+<main>
   <div class="blogContainer" data-session="{{userId}}">
-    <h2 class="blogTitle" data-user="{{blogpost.user_id}} "data-id="{{blogpost.id}}">{{blogpost.title}}</h2>
-    <p>Posted by &nbsp;{{user.username}}&nbsp; on &nbsp;{{blogpost.date_created}}</p>
-  </div>
-  <div>
-    <p>{{blogpost.content}}</p>
-  </div>
-</div>
-{{#if blogpost.Comment}}
-  <div>
     <div>
-      <h3>Comments</h3>
+      <h2 class="blogTitle" data-user="{{blogpost.user_id}} "data-id="{{blogpost.id}}" data-title='{{blogpost.title}}'>{{blogpost.title}}</h2>
+      <p>Posted by &nbsp;{{blogpost.user.username}}&nbsp; on &nbsp;{{blogpost.date_created}}</p>
     </div>
     <div>
-      {{#each blogpost.Comment}}
-        <div>
-          <p>{{content}}</p>
-        </div>
-        <div>
-          <p>Posted by &nbsp;{{user.username}}&nbsp; on &nbsp;{{comment.date_created}}</p>
-        </div>
-      {{/each}}
+      <p class="blogContent" data-content="{{blogpost.content}}">{{blogpost.content}}</p>
     </div>
+    <div class="editContainer"></div>
   </div>
-{{/if}}
-<div>
-  <div>
-    <p>Comment</p>
-    <textarea value="{{blogpost.id}} "class="commentContent"></textarea>
-    <button class="sendComment">Submit</button>
-  </div>
-</div>
+  {{#if blogpost.comments}}
+    <div>
+      <div>
+        <h3>Comments</h3>
+      </div>
+      <div>
+        {{#each blogpost.comments as |comment|}}
+          <div>
+            <p>{{comment.content}}</p>
+          </div>
+          <div>
+            <p>Posted by &nbsp;{{comment.user.username}}&nbsp; on &nbsp;{{comment.date_created}}</p>
+          </div>
+        {{/each}}
+      </div>
+    </div>
+  {{/if}}
+  <div class='comment-container'></div>
+</main>
+
+<script src="/js/blogpost.js"></script>
