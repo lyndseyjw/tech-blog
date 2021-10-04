@@ -1,15 +1,21 @@
 const router = require('express').Router();
-const { Blogpost } = require('../../models');
+const { Blogpost, User, Comment } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 router.post('/', withAuth, async (req, res) => {
   try {
     const newBlogpost = await Blogpost.create({
-      ...req.body,
+      title: req.body.title,
+      content: req.body.content,
       user_id: req.session.user_id,
     });
 
-    res.status(200).json(newBlogpost);
+    req.session.save(() => {
+      req.session.user_id = newBlogpost.user_id;
+
+      res.status(200).json(newBlogpost);
+    });
+
   } catch (err) {
     res.status(400).json(err);
   }
@@ -35,5 +41,19 @@ router.put('/:id', withAuth, async (req, res) => {
     res.status(500).json(err)
   }
 })
+
+router.delete('/:id', async (req,res) => {
+  try {
+    const deleteBlogpost = await Blogpost.destroy(
+      {
+        where: {
+          id: req.params.id
+        },
+      });
+      res.status(200).json(blog);
+  } catch(err) {
+    res.status(500).json(err)
+  };
+});
 
 module.exports = router;

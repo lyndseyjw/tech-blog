@@ -2,6 +2,139 @@ header, .project:not(:last-child) {
   border-bottom: 1px solid #ccc;
 }
 
+body {
+  background-color: rgba(234, 234, 234);
+}
+
+header {
+
+  background-color: rgba(192, 214, 223);
+  height: 150px;
+}
+
+h1 {
+
+  font-size: 65px;
+  margin-left: 30px;
+}
+
+nav {
+
+  font-size: 20px;
+  margin-right: 30px;
+}
+
+a {
+
+  color: rgba(172, 123, 125);
+  padding: 20px;
+}
+
+a:hover {
+  text-decoration: none;
+  color: rgba(71, 73, 84)
+}
+
+button {
+  border-radius: 5px;
+  padding: 10px;
+  color: rgba(234, 234, 234);
+  background-color: rgba(172, 123, 125);
+}
+
+button:hover {
+  background-color: rgba(71, 73, 84);
+}
+
+main {
+
+  padding: 60px;
+}
+
+.center {
+  margin: 0 auto;
+}
+
+.heading {
+  background-color: rgba(71, 73, 84);
+  position: relative;
+  padding: 20px;
+  height: 80px;
+}
+
+h2 {
+  display: inline-block;
+  color: rgba(172, 123, 125)
+}
+
+.postedBy {
+  float: right;
+  color: rgba(234, 234, 234);
+}
+
+p {
+  display: inline-block;
+  line-height: 80px;
+}
+
+.content {
+  border: 2px solid rgba(71, 73, 84);
+  padding: 20px;
+}
+
+.smaller-heading {
+  display: inline-block;
+}
+
+.heading a:hover {
+  color: rgba(255, 167, 55)
+}
+
+.postButtons {
+  margin:30px;
+  color: rgba(172, 123, 125);
+  background-color: rgba(192, 214, 223);
+  padding: 20px;
+}
+
+.center-heading {
+  text-align: center;
+}
+
+.left-text {
+  text-align: left;
+}
+
+form {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+.comment-heading {
+  background-color: rgba(172, 123, 125);
+  color: rgba(71, 73, 84);
+  padding: 20px;
+  height: 80px;
+  margin-top: 40px;
+}
+
+.whiteBorder {
+  border-top: 4px solid white;
+}
+
+.background {
+  color: rgba(172, 123, 125);
+  background-color: rgba(192, 214, 223);
+  padding: 20px;
+}
+
+
+
+
 .no-button {
   background: none;
   border: none;

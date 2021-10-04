@@ -1,21 +1,19 @@
 {{!-- here we will loop through each blog post to display on screen --}}
 
+{{!-- add to main --}}
 <!-- Loop over each object in the blogposts array -->
-  <h1>
-    <span role="img" aria-label="money">💻</span>
-    <a href="/">The Tech Blog</a>
-  </h1>
-</header>
 {{#each blogposts as |blogpost| }}
 <main>
-  <div>
-    <div>
+  <div class='center'>
+    <div class='heading'>
       <h2>
         <a href="/blogpost/{{blogpost.id}}">{{blogpost.title}}</a>
       </h2>
-      <p>Posted by &nbsp;{{user.username}}&nbsp; on &nbsp;{{blogpost.date_created}}</p>
+      <div class="postedBy">
+        <p>Posted by &nbsp;{{user.username}}&nbsp; on &nbsp;{{blogpost.date_created}}</p>
+      </div>
     </div>
-    <div>
+    <div class='content'>
       <p>{{blogpost.content}}</p>
     </div>
   </div>

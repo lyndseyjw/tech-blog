@@ -1,0 +1,24 @@
+<main>
+    <div class="col-md-6">
+        <h3>Edit Post:</h3>
+
+        <form class="form edit-blogpost-form">
+            <div class="form-group">
+                <label for="blogpost-title">Title :</label>
+                <input class="form-input title" type="text" id="blogpost-title" name="blogpost-title" placeholder="{{title}}"/>
+            </div>
+            <div class="form-group">
+                <label for="project-desc">Content :</label>
+                <textarea class="form-input content" id="blogpost-content" name="blogpost-content" placeholder="{{content}}"></textarea>
+            </div>
+            <div>
+                {{!-- put fetch --}}
+                <button class="btn btn-sm btn-success editBlogpost" type="submit" data-id="{{blogpost.id}}">EDIT</button>
+                {{!-- delete fetch --}}
+                <button class="btn btn-sm btn-danger deleteBlogpost" data-id="{{blogpost.id}}">DELETE</button>
+            </div>
+        </form>
+    </div>
+</main>
+
+<script src="/js/edit.js"></script>

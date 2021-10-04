@@ -1,28 +1,20 @@
 {{!-- here we will show all posts that user has created --}}
 {{!-- we will loop through the blogposts & for any blogposts that have a user_id that matches current user(id), they will be rendered to the page --}}
-<header>
-  <h1>
-    <a href="/">Your Dashboard</a>
-  </h1>
-</header>
+{{!-- add to dashmain --}}
 <main>
-  <div class="row">
-    <div class="col-auto">
-      <h2>Welcome, {{name}}!</h2>
-    </div>
-  </div>
   {{#if blogposts.length}}
     {{#each blogposts as |blogpost|}}
     <div>
-      <div>
+      <div class='heading smaller-heading'>
         <h4><a href="/blogpost/{{blogpost.id}}">{{blogpost.title}}</a></h4>
-      </div>
-      <div>
-        <button class="btn btn-sm btn-danger" data-id="{{blogpost.id}}">DELETE</button>
       </div>
     </div>
     {{/each}}
   {{/if}}
+  <div class="newBlogpostContainer" data-user='{{blogpost.user.id}}'>
+    {{!-- get request in home route : dashboard/new to render this page --}}
+    <a href="/blogpost/new">
+      <button class="newBlogpost postButtons">Create a New Blogpost</button>
+    </a>
+  </div>
 </main>
-
-<script src="/js/dashboard.js"></script>

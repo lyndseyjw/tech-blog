@@ -1,21 +1,21 @@
 const router = require('express').Router();
+const { read } = require('fs');
 const { Blogpost, User, Comment } = require('../models');
 const withAuth = require('../utils/auth');
 
-router.get('/', withAuth, async (req, res) => {
+router.get('/', async (req, res) => {
   try {
     // Get all projects and JOIN with user data
     const blogpostData = await Blogpost.findAll({
       include: [
         {
-          model: User,
-          attributes: ['username'],
+          model: User
         },
       ],
     });
 
     // Serialize data so the template can read it
-    const blogposts = blogpostData.map((blogpost) => blogpost.get({ plain: true }));
+    const blogposts = blogpostData.map(blogpost => blogpost.get({ plain: true }));
 
     // Pass serialized data and session flag into template
     res.render('homepage', { 
@@ -28,12 +28,31 @@ router.get('/', withAuth, async (req, res) => {
   }
 });
 
-router.get('/blogpost/:id', async (req, res) => {
+router.get('/dashboard', withAuth, async (req, res) => {
+  try {
+    // Find the logged in user based on the session ID
+    const userData = await User.findByPk(req.session.user_id, {
+      attributes: { exclude: ['password'] },
+      include: [{ model: Blogpost }],
+    });
+
+    const user = userData.get({ plain: true });
+
+    res.render('dashboard', {
+      ...user,
+      logged_in: true
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.get('/blogpost/:id', withAuth, async (req, res) => {
   try {
     const blogpostData = await Blogpost.findByPk(req.params.id, {
       include: [
         {
-          model: User,
+          model: User
         },
         {
           model: Comment,
@@ -56,6 +75,11 @@ router.get('/blogpost/:id', async (req, res) => {
   }
 });
 
+router.get('/blogpost/new', (req, res) => {
+  
+  res.render('new');
+});
+
 router.get('/login', (req, res) => {
   // If the user is already logged in, redirect the request to another route
   if (req.session.logged_in) {
@@ -68,10 +92,10 @@ router.get('/login', (req, res) => {
 router.get('/signup', (req, res) => {
   // If the user is already logged in, redirect the request to another route
   if (req.session.logged_in) {
-    res.redirect('/dashboard');
+    res.redirect('/');
     return;
   }
-  res.render('login');
+  res.render('signup');
 });
 
 module.exports = router;
