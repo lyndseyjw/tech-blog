@@ -5,11 +5,11 @@
         <form class="form edit-blogpost-form">
             <div class="form-group">
                 <label for="blogpost-title">Title :</label>
-                <input class="form-input title" type="text" id="blogpost-title" name="blogpost-title" placeholder="{{title}}"/>
+                <input class="form-input title" type="text" id="blogpost-title" name="blogpost-title" placeholder="{{blogpost.title}}"/>
             </div>
             <div class="form-group">
                 <label for="project-desc">Content :</label>
-                <textarea class="form-input content" id="blogpost-content" name="blogpost-content" placeholder="{{content}}"></textarea>
+                <textarea class="form-input content" id="blogpost-content" name="blogpost-content" placeholder="{{blogpost.content}}"></textarea>
             </div>
             <div>
                 {{!-- put fetch --}}

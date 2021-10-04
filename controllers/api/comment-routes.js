@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Comment } = require('../../models');
+const { Comment, User, Blogpost } = require('../../models');
 
 router.post('/', async (req, res) => {
     try {
@@ -7,14 +7,17 @@ router.post('/', async (req, res) => {
         {
           content: req.body.content,
           user_id: req.session.user_id,
-          blogpost_id: req.body.blogpost_id
+          blogpost_id: req.body.id
         }
       )   
-
-      res.status(200).json(commentData);
+      req.session.save(() => {
+        req.session.user_id = commentData.user_id;
+  
+        res.status(200).json(commentData);
+      });
     } catch (err) {
       res.status(400).json(err);
     }
-  });
+});
 
 module.exports = router;
