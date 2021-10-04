@@ -1,14 +1,14 @@
 // in routes, will need to send blogpost (as const received after mapping through array with plain:true), userId:req.session.user_id 
-const sessionId = document.querySelector('.blogContainer').getAttribute('data-session');
-const userId = document.querySelector('.blogTitle').getAttribute('data-user');
+// const sessionId = document.querySelector('.blogContainer').getAttribute('data-session');
+// const userId = document.querySelector('.blogTitle').getAttribute('data-user');
 
-if (sessionId === userId) {
-  document.querySelector('.hidden').style.display = 'block';
+// if (sessionId === userId) {
+//   document.querySelector('.hidden').style.display = 'block';
 
-} else {
+// } else {
 
-  document.querySelector('.hidden').style.display = 'none';
-}
+//   document.querySelector('.hidden').style.display = 'none';
+// }
 
 const postComment = async(event) => {
 
