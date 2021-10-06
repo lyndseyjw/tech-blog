@@ -6,7 +6,7 @@
 <main>
   <div class="blogContainer" data-session="{{userId}}">
     <div class="heading">
-      <h2 class="blogTitle" data-user="{{blogpost.user_id}} "data-id="{{blogpost.id}}" data-title='{{blogpost.title}}'>{{blogpost.title}}</h2>
+      <h2 class="blogTitle" data-user="{{blogpost.user_id}}" data-id="{{blogpost.id}}" data-title='{{blogpost.title}}'>{{blogpost.title}}</h2>
       <div class="postedBy">
         <p>Posted by &nbsp;{{blogpost.user.username}}&nbsp; on &nbsp;{{blogpost.date_created}}</p>
       </div>
@@ -15,7 +15,7 @@
       <p class="blogContent" data-content="{{blogpost.content}}">{{blogpost.content}}</p>
     </div>
     <a href="/edit/{{blogpost.id}}">
-      <button class="postButtons">Edit</button>
+      <button class="postButtons hidden">Edit</button>
     </a>
   </div>
   {{#if blogpost.comments}}

@@ -38,6 +38,7 @@ router.get('/dashboard', async (req, res) => {
     const user = userData.get({ plain: true });
 
     res.render('dashboard', {
+      layout:"dashmain",
       ...user,
       logged_in: true
     });
@@ -94,6 +95,7 @@ router.get('/edit/:id', async (req, res) => {
     // res.json(blogpost)
 
     res.render('edit', {
+      layout:"dashmain",
       blogpost,
       logged_in: req.session.logged_in,
       userId: req.session.user_id
