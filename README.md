@@ -17,7 +17,7 @@ Once on the site, users can create a profile & once logged in, they are able to 
 
 ## Languages and Technologies Used
 
-Handlebars, CSS, Javascript, Node, NPMs, Express, Sequelize, mySQL, Heroku
+Handlebars, CSS, Javascript, Node, NPMs, Express, Sequelize, mySQL, Heroku, Restful-APIs, Session-Cookie
 
 ## License
 
