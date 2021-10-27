@@ -1,6 +1,32 @@
 # tech-blog
 
+![License: MIT](https://img.shields.io/badge/License-MIT-blueviolet.svg)
+
 ## An MVC-Structured Blog Site for Developers to Share Technical Concepts, Recent Advancements &amp; New Technologies 
+
+## User Story
+
+## Features
+
+## Table of Contents
+  - [Installation](#installation)
+  - [Languages](#languages)
+  - [Questions](#questions)
+  - [Contributors](#contributors)
+  - [License](#license)
+  - [Screenshots](#screenshots)
+
+## Installation
+
+## Languages
+
+## Questions
+
+## Contributors
+
+## License
+
+## Screenshots
 
 This application was a wonderful challenge of my MVC knowledge. It really test my ability to understand the logic & flow of a full stack web application. I realized by greatest strength is within frontend javascript. I absolutely love dynamically manipulating the DOM but found that this can cause quite a bit of confusion when the answer might simply be to render a new handlebars page. I had to swallow my pride & resist making complex frontend javascript files in order to make a concise MVC structure that would be user friendly & functional.
 
