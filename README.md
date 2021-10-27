@@ -18,7 +18,7 @@ This app is a full stack application that utilizes an MVC structure & RESTful AP
 
 ## Table of Contents
   - [Installation](#installation)
-  - [Languages](#languages-&-technologies-used)
+  - [Languages](#languages-and-technologies-used)
   - [Questions](#questions)
   - [Contributors](#contributors)
   - [License](#license)
@@ -43,7 +43,7 @@ All NPM packages required for this application are listed as dependencies in the
 
 Once you see 'app is now running on Port 3000', you can view the app on http://localhost:3000/
 
-## Languages & Technologies Used
+## Languages and Technologies Used
 
 Handlebars, CSS, Javascript, Node, NPMs, Express, Sequelize, mySQL, Heroku, Restful-APIs, Session-Cookie
 
