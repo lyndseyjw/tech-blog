@@ -4,7 +4,6 @@
 
 ## An MVC-Structured Blog Site for Developers to Share Technical Concepts, Recent Advancements &amp; New Technologies 
 
-<<<<<<< HEAD
 ## User Story
 
 ## Features
@@ -30,11 +29,9 @@
 ## Screenshots
 
 This application was a wonderful challenge of my MVC knowledge. It really test my ability to understand the logic & flow of a full stack web application. I realized by greatest strength is within frontend javascript. I absolutely love dynamically manipulating the DOM but found that this can cause quite a bit of confusion when the answer might simply be to render a new handlebars page. I had to swallow my pride & resist making complex frontend javascript files in order to make a concise MVC structure that would be user friendly & functional.
-=======
 ## Overview
 
 This application was a wonderful challenge of my MVC knowledge. It really tested my ability to understand the logic & flow of a full stack web application. I realized my greatest strength is within frontend javascript. I absolutely love dynamically manipulating the DOM but found that this can cause quite a bit of confusion when the answer might simply be to render a new handlebars page. I had to swallow my pride & resist making complex frontend javascript files in order to make a concise MVC structure that would be user friendly & functional.
->>>>>>> bbabedd58a539e1a83c6b91df55aecfdfdb0755d
 
 I had a lot of fun working on this despite many of the struggles as the end result was well worth all the effort. I appreciate the many (many, many) failures because they helped strengthen my de-bugging skills & eye for detail. Something as simple as misnaming a route can throw off the entire application & helped me implement strict 'singular noun' rules that I will carry throughout my career. 
 
