@@ -14,7 +14,9 @@ With the Tech Blog app, users can view a preview of recent blogposts on their ho
 <br />
 A user may also create their own posts when logged in & manage all of their posts via their dashboard i.e. they may edit & delete any of their own posts. <br />
 <br />
-This app is a full stack application that utilizes an MVC structure & RESTful APIs. This application supplies the user with every route (GET, DELETE, etc.), making this a fully dynamic, interactive UI & DB. The folders are also concise & organized in a way that any developer could easily come in & edit / update as necessary & without difficulty.
+This app is a full stack application that utilizes an MVC structure & RESTful APIs. This application supplies the user with every route (GET, DELETE, etc.), making this a fully dynamic, interactive UI & DB. The folders are also concise & organized in a way that any developer could easily come in & edit / update as necessary & without difficulty.<br/>
+<br/>
+The page has been styled with accessiblity in mind - the color scheme was chosen to satisy a large range of audiences.
 
 ## Table of Contents
   - [Installation](#installation)
