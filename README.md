@@ -18,12 +18,12 @@ This app is a full stack application that utilizes an MVC structure & RESTful AP
 
 ## Table of Contents
   - [Installation](#installation)
-  - [Languages](#languages)
+  - [Languages](#languages-&-technologies-used)
   - [Questions](#questions)
   - [Contributors](#contributors)
   - [License](#license)
-  - [Author](#author)
-  - [Screenshots](#screenshots)
+  - [Author](#author-notes)
+  - [Screenshots](#application-screenshots)
 
 ## Installation
 
